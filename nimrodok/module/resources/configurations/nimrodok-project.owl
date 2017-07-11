@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns="urn:lsid:localhost:onto:4:1#"
+    xml:base="urn:lsid:localhost:onto:4:1">
+  <owl:Class rdf:ID="NimrodOK"> 
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Nimrod OK</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="NimrodOKActors"> 
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="NimrodOK"/>
+    </rdfs:subClassOf>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Optim Actors</rdfs:label>
+  </owl:Class>
+</rdf:RDF>
+

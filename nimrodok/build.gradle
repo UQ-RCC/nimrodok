@@ -1,0 +1,244 @@
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.Files;
+import javax.xml.parsers.DocumentBuilderFactory;
+import org.w3c.dom.*;
+import au.edu.uq.rcc.nimrod.optim.build.ActorDefinition;
+import au.edu.uq.rcc.nimrod.optim.build.XMLUtils;
+
+repositories {
+	mavenCentral();
+}
+
+jar {
+	if(keplerVersion.isSource)
+	archiveName = "${safeProjectName}.${extension}"
+	else
+	archiveName = "${safeProjectName}-${keplerVersion.version}.${extension}"
+}
+
+configurations {
+	embed
+	compile.extendsFrom(embed)
+}
+
+dependencies {
+	embed group: 'au.edu.uq.rcc', name: 'nimrodok-interface', version: '1.0'
+
+	compile files("${keplerPath}/build-area/lib/ant.jar")
+
+	def addModuleDependency = { module ->
+		def folderName = keplerVersion.getModuleFolderName(module)
+		if(keplerVersion.isSource) {
+			compile files("${keplerPath}/${folderName}/target/classes")
+		} else {
+			compile fileTree(dir: "${keplerPath}/${folderName}/target", include: ['*.jar'])
+		}
+
+		compile fileTree(dir: "${keplerPath}/${folderName}/lib/jar", include: ['*.jar'])
+	}
+
+	if(keplerVersion.isSource) {
+		compile files("${keplerPath}/${nimrodKModule}/target/classes")
+		compile files("${keplerPath}/ptolemy/target/classes")
+		compile fileTree(dir: "${keplerPath}/ptolemy/src/lib", include: ['*.jar'])
+	} else {
+		compile files("${keplerPath}/${nimrodKModule}/target/${nimrodK}-${keplerVersion.version}.jar")
+		compile files();
+		addModuleDependency("ptolemy-kepler")
+
+		compile files("${keplerPath}/${keplerVersion.getModuleFolderName("ptolemy-kepler")}/target/ptolemy-kepler-${keplerVersion.version}.jar")
+		compile fileTree(dir: "${keplerPath}/${keplerVersion.getModuleFolderName("ptolemy-kepler")}/lib/jar", include: ['*.jar'])
+		compile fileTree(dir: "${keplerPath}/${keplerVersion.getModuleFolderName("ptolemy-kepler")}/lib/ptolemy-lib", include: ['*.jar'])
+	}
+
+	addModuleDependency("core")
+	addModuleDependency("common")
+	addModuleDependency("kepler-tasks")
+	addModuleDependency("configuration-manager")
+
+	/* HACKHACKHACK: To assist when writing build.gradle. Comment this when building. */
+	//compile fileTree(dir: "/opt/gradle-2.11/lib", include: ['*.jar'])
+
+	// Adding dependencies here will add the dependencies to each subproject.
+	testCompile group: 'junit', name: 'junit', version: '4.10'
+}
+
+task cleanStaging(type: Delete) {
+	delete "${buildDir}/staging"
+}
+
+task setupStaging(dependsOn: [cleanStaging]) {
+	doLast {
+		file("${stagingDir}").mkdirs()
+		file("${stagingDir}/module-info").mkdirs()
+		file("${stagingDir}/target").mkdirs()
+		file("${stagingDir}/resources/kar/actors").mkdirs()
+		file("${stagingDir}/resources/configurations").mkdirs()
+	}
+}
+
+task binaryInstallCheck() {
+	doFirst {
+		if(keplerVersion.isSource) {
+			throw new GradleException("Refusing to modify a source installation");
+		}
+	}
+}
+
+task nimrodok_clean_module(type: Delete) {
+	delete "${keplerPath}/${moduleFolderName}"
+}
+
+task nimrodok_clean_data(type: Delete) {
+	String home = System.getProperty('user.home')
+	delete "${home}/KeplerData/modules/${safeProjectName}"
+}
+
+task nimrodok_clean(dependsOn: [nimrodok_clean_module, nimrodok_clean_data]) { }
+
+task clean_cache(type: Delete, dependsOn: nimrodok_clean) {
+	String home = System.getProperty('user.home')
+	delete "${home}/.kepler", "${home}/KeplerData"
+}
+
+task update_kepler_modules_info_backup(type: Copy) {
+	from("${moduleInfoFile}") into("${projectDir}/backup/module-info")
+}
+
+task update_kepler_modules_build_backup(type: Copy) {
+	from("${buildModuleInfoFile}") into("${projectDir}/backup/build-area")
+}
+
+task update_kepler_modules_info(dependsOn: [binaryInstallCheck, update_kepler_modules_info_backup]) {
+	doLast { XMLUtils.addModulesTXTEntry("${moduleInfoFile}", "${safeProjectName}-${keplerVersion.version}.^", "${nimrodK}-${keplerVersion.version}.^") }
+}
+
+task update_kepler_modules_build(dependsOn: [binaryInstallCheck, update_kepler_modules_build_backup]) {
+	doLast { XMLUtils.addModulesTXTEntry("${buildModuleInfoFile}", "${safeProjectName}-${keplerVersion.version}.^", "${nimrodK}-${keplerVersion.version}.^") }
+}
+
+task backupKeplerIconMapping(type: Copy) {
+	from("${guiMappingFile}") into("${projectDir}/backup")
+}
+
+task backupKeplerOntologies(type: Copy) {
+	from("${ontologyFile}") into("${projectDir}/backup")
+}
+
+task updateKeplerIconMappings(dependsOn: [binaryInstallCheck, backupKeplerIconMapping]) {
+	doLast {
+		Document document = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(
+			new File("${guiMappingFile}")
+		);
+		XMLUtils.buildActorIconMappings(document, actorDefinitions);
+		XMLUtils.dumpXML(document, new FileOutputStream("${guiMappingFile}"));
+		
+	}
+}
+
+task updateKeplerOntologies(type: Copy, dependsOn: [binaryInstallCheck, backupKeplerOntologies]) {
+	from('module/resources/configurations/nimrodok-project.owl')
+	into("${keplerPath}/common-${keplerVersionValue}/configs/ptolemy/configs/kepler/ontologies")
+
+	doLast {
+		Document document = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(
+			new File("${ontologyFile}")
+		);
+		
+		Node root = XMLUtils.findOrCreateNode(document, "ontologies");
+		XMLUtils.addOrUpdateOntology(root, "nimrodok-project.owl", true);
+		
+		XMLUtils.dumpXML(document, new FileOutputStream("${ontologyFile}"));
+	}
+}
+
+task updateKeplerGUI(dependsOn: [binaryInstallCheck, updateKeplerIconMappings, updateKeplerOntologies]) { }
+
+
+
+
+/*---------------------------FILE GENERATION------------------------------------*/
+/* Generate the manifest referencing the actor XMLs */
+task generateActorManifest(dependsOn: [setupStaging]) {
+	doLast {
+		XMLUtils.generateActorManifest(Paths.get("${stagingDir}/resources/kar/actors/MANIFEST.MF"), actorDefinitions);
+	}
+}
+
+/* Generate the actor XML files. */
+task generateActorXMLs(dependsOn: [setupStaging]) {
+	doLast {
+		for(actor in actorDefinitions) {
+			XMLUtils.buildActorXML(Paths.get("${stagingDir}/resources/kar/actors"), actor);
+		}
+	}
+}
+
+/* Generate resources/configurations/uiSVGIconMappingsByClass.xml */
+task generateIconMappings(dependsOn: [setupStaging]) {
+	doLast {
+		Document document = DocumentBuilderFactory.newInstance().newDocumentBuilder().newDocument()
+		XMLUtils.buildActorIconMappings(document, actorDefinitions)
+		
+		Path xmlPath = Paths.get("${stagingDir}/resources/configurations/uiSVGIconMappingsByClass.xml")
+		XMLUtils.dumpXML(document, Files.newOutputStream(xmlPath));
+	}
+}
+
+task generateOntologyCatalog(dependsOn: [setupStaging]) {
+	doLast {
+		Document document = DocumentBuilderFactory.newInstance().newDocumentBuilder().newDocument()
+
+		Node ontologies = XMLUtils.findOrCreateNode(document, "ontologies");
+		XMLUtils.addOrUpdateOntology(ontologies, "nimrodok-project.owl", true);
+	
+		Path xmlPath = Paths.get("${stagingDir}/resources/configurations/ontology_catalog.xml")
+		XMLUtils.dumpXML(document, Files.newOutputStream(xmlPath));
+	}
+}
+
+task generateModulesTxt(dependsOn: [setupStaging]) {
+	doLast {
+		def modulesTxt = new File("${stagingDir}/module-info/modules.txt")
+
+		modulesTxt.createNewFile()
+		modulesTxt.text = """\
+${nimrodK}
+*kepler
+"""
+	}
+}
+
+// Copy the embeds to staging
+task installEmbedsToStaging(type: Copy, dependsOn: [setupStaging]) {
+	from(configurations.embed) into ("${stagingDir}/lib/jar")
+}
+
+// Copy the static files to staging
+task installStaticToStaging(type: Copy, dependsOn: [setupStaging]) {
+	from('module/') into (stagingDir)
+}
+
+// Copy everything except the final JAR and/or source code
+task installFilesToStaging(dependsOn: [
+		installStaticToStaging, installEmbedsToStaging,
+		generateActorXMLs, generateActorManifest,
+		generateIconMappings, generateOntologyCatalog, generateModulesTxt
+	]) {}
+
+// Copy the final JAR to staging
+task installJARToStaging(type: Copy, dependsOn: [jar, setupStaging]) {
+	from(jar.archivePath) into("${stagingDir}/target")
+}
+
+// Install everything to staging
+task installStaging(dependsOn:[installJARToStaging, installFilesToStaging]) {}
+
+task seedStaging(type: Copy, dependsOn: [installFilesToStaging]) {
+	from(sourceSets.main.java.srcDirs) into("${stagingDir}/src")
+}
+
+task invasiveInstall(type: Copy, dependsOn: [installStaging, updateKeplerGUI, update_kepler_modules_info, update_kepler_modules_build]) {
+	from(stagingDir) into("${keplerPath}/${moduleFolderName}")
+}

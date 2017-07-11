@@ -1,0 +1,32 @@
+ext {
+	moduleName = "ganesh"
+	stagingDir = "${moduleStagingDir}/${moduleName}"
+}
+
+repositories {
+	mavenCentral();
+}
+
+dependencies {
+	compile group: 'au.edu.uq.rcc', name: 'nimrodok-interface', version: '1.0'
+	compile fileTree(dir: "module", include: ['*.nimjar'])
+}
+
+jar {
+	extension 'nimjar'
+}
+
+task cleanStaging(type: Delete) {
+	delete stagingDir
+}
+
+task setupStaging(dependsOn: [cleanStaging]) {
+	doLast {
+		file(stagingDir).mkdirs()
+	}
+}
+
+task installStaging(type: Copy, dependsOn: [setupStaging, jar]) {
+	from('module/') into(stagingDir)
+	from(jar.archivePath) into(stagingDir)
+}

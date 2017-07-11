@@ -1,0 +1,13 @@
+/nbproject/
+/nbproject/private/
+/.nb-gradle/
+**/.gradle/
+**/build/
+**/bin/
+**/backup/
+**/.settings/
+**/.project
+**/.classpath
+**/hs_err*
+*.swp
+

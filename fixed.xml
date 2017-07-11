@@ -1,0 +1,635 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE entity PUBLIC "-//UC Berkeley//DTD MoML 1//EN"
+    "http://ptolemy.eecs.berkeley.edu/xml/dtd/MoML_1.dtd">
+<entity name="sdfbsudgfashbdbfkajhsdfkjahsgdkfjsgad2" class="ptolemy.actor.TypedCompositeActor">
+    <property name="_createdBy" class="ptolemy.kernel.attributes.VersionAttribute" value="9.1.devel">
+    </property>
+    <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:uuid:192e2da7-e712-4eab-a4ea-bb3bd13b7a4d:9:4168:urn:lsid:kepler-project.org/ns/:82198:196:579:urn:lsid:kepler-project.org/ns/:82499:14:31:urn:lsid:kepler-project.org/ns/:82499:17:109:urn:lsid:kepler-project.org/ns/:82593:8:732">
+    </property>
+    <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:kepler-project.org/ns/:83159:126:48">
+    </property>
+    <property name="Nimrod/K Director" class="org.monash.nimrod.NimrodDirector.NimrodDirector">
+        <property name="localClock" class="ptolemy.actor.LocalClock">
+            <property name="globalTimeResolution" class="ptolemy.actor.parameters.SharedParameter" value="1E-10">
+            </property>
+            <property name="clockRate" class="ptolemy.data.expr.Parameter" value="1.0">
+            </property>
+        </property>
+        <property name="maxProcessors" class="ptolemy.data.expr.Parameter" value="0">
+        </property>
+        <property name="Show the monitor?" class="ptolemy.data.expr.Parameter" value="false">
+        </property>
+        <property name="Scheduler" class="ptolemy.data.expr.StringParameter" value="org.monash.nimrod.Schedulers.BasicTokenScheduler">
+        </property>
+        <property name="Logging level" class="ptolemy.data.expr.Parameter" value="">
+        </property>
+<property name="KeplerDocumentation" class="ptolemy.vergil.basic.KeplerDocumentationAttribute">
+<property name="description" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
+<property name="author" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Mudit Goel, Edward A. Lee, Xiaowen Xin</configure></property>
+<property name="version" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
+<property name="userLevelDocumentation" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>&#10;&lt;p&gt;Nimrod Director.  To be documented.&#10;&lt;/p&gt;&#10;</configure></property>
+<property name="prop:initialQueueCapacity" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>The initial size of the queues for each communication channel. The value is an integer that defaults to 1. This is an advanced parameter that can usually be left at its  default value.</configure></property>
+<property name="prop:maximumQueueCapacity" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>The maximum size of the queues for each communication channel. The value is an integer that defaults to 65536. To specify unbounded queues, set the value to 0. This is an advanced parameter that can usually be left at its  default value.</configure></property>
+</property>        <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:uuid:192e2da7-e712-4eab-a4ea-bb3bd13b7a4d:143:39">
+        </property>
+        <property name="class" class="ptolemy.kernel.util.StringAttribute" value="org.monash.nimrod.NimrodDirector.NimrodDirector">
+            <property name="id" class="ptolemy.kernel.util.StringAttribute" value="urn:lsid:nimrod.monash.edu.au:directorclass:1:1">
+            </property>
+        </property>
+        <property name="semanticType00" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:1:1#Director">
+        </property>
+        <property name="semanticType11" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:2:1#Director">
+        </property>
+        <property name="semanticType22" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:4:1#NKDirectors">
+        </property>
+        <property name="timeResolution" class="ptolemy.actor.parameters.SharedParameter" value="1E-10">
+        </property>
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[560.0, 90.0]">
+        </property>
+        <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:nimrod.monash.edu.au:director:1:1">
+        </property>
+    </property>
+    <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={-8, -8, 1552, 850}, maximized=true}">
+    </property>
+    <property name="_vergilSize" class="ptolemy.actor.gui.SizeAttribute" value="[1231, 688]">
+    </property>
+    <property name="_vergilZoomFactor" class="ptolemy.data.expr.ExpertParameter" value="1.2500000000000009">
+    </property>
+    <property name="_vergilCenter" class="ptolemy.data.expr.ExpertParameter" value="{834.3999999999996, 308.19999999999976}">
+    </property>
+    <property name="enableBackwardTypeInference" class="ptolemy.data.expr.Parameter" value="false">
+    </property>
+    <entity name="SelectPoint Actor" class="au.edu.uq.rcc.nimrod.optim.SelectPointsActor">
+        <property name="Criterion" class="ptolemy.data.expr.StringParameter" value="startingpoints random&#10;starts 5">
+            <property name="Criterion" class="ptolemy.actor.gui.style.TextStyle">
+                <property name="height" class="ptolemy.data.expr.Parameter" value="10">
+                </property>
+                <property name="width" class="ptolemy.data.expr.Parameter" value="30">
+                </property>
+            </property>
+        </property>
+        <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:kepler-project.org/ns/:82593:112:1">
+        </property>
+        <property name="class" class="ptolemy.kernel.util.StringAttribute" value="au.edu.uq.rcc.nimrod.optim.SelectPointsActor">
+            <property name="id" class="ptolemy.kernel.util.StringAttribute" value="urn:lsid:au.edu.uq.rcc.nimrod.optim:actor:2:1">
+            </property>
+        </property>
+        <property name="semanticType00" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:4:1#NimrodOKActors">
+        </property>
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[410.0, 190.0]">
+        </property>
+        <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:nimrod.monash.edu.au:actor:306:1:urn:lsid:uuid:192e2da7-e712-4eab-a4ea-bb3bd13b7a4d:11:31:urn:lsid:kepler-project.org/ns/:82198:224:1">
+        </property>
+    </entity>
+    <entity name="Define Search Space Actor" class="au.edu.uq.rcc.nimrod.optim.DefineSearchSpaceActor">
+        <property name="firingCountLimit" class="ptolemy.data.expr.Parameter" value="1">
+        </property>
+        <property name="NONE" class="ptolemy.data.expr.Parameter" value="0">
+        </property>
+        <property name="Parameters" class="ptolemy.data.expr.StringParameter" value="parameter x1 float range from 0.0 to 1.0;&#10;parameter x2 float range from -5.0 to 5.0;&#10;parameter x3 float range from -5.0 to 5.0;&#10;parameter x4 float range from -5.0 to 5.0;&#10;parameter x5 float range from -5.0 to 5.0;&#10;parameter x6 float range from -5.0 to 5.0;&#10;parameter x7 float range from -5.0 to 5.0;&#10;parameter x8 float range from -5.0 to 5.0;&#10;parameter x9 float range from -5.0 to 5.0;&#10;parameter x10 float range from -5.0 to 5.0;">
+            <display name="Parameter Definition"/>
+        </property>
+        <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:kepler-project.org/ns/:82593:330:3">
+        </property>
+        <property name="class" class="ptolemy.kernel.util.StringAttribute" value="au.edu.uq.rcc.nimrod.optim.DefineSearchSpaceActor">
+            <property name="id" class="ptolemy.kernel.util.StringAttribute" value="urn:lsid:nimrod.monash.edu.au:class:301:1">
+            </property>
+        </property>
+        <property name="semanticType00" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:4:1#NimrodOKActors">
+        </property>
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[285.0, 140.0]">
+        </property>
+        <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:au.edu.uq.rcc.nimrod.optim:actor:1:1:urn:lsid:uuid:192e2da7-e712-4eab-a4ea-bb3bd13b7a4d:14:5">
+        </property>
+        <port name="trigger" class="ptolemy.actor.TypedIOPort">
+            <property name="input"/>
+            <property name="multiport"/>
+            <property name="_showName" class="ptolemy.data.expr.SingletonParameter" value="true">
+            </property>
+        </port>
+    </entity>
+    <entity name="ZDT4" class="ptolemy.actor.lib.python.PythonScript">
+        <property name="jythonClassName" class="ptolemy.kernel.util.StringAttribute" value="Main">
+        </property>
+        <property name="script" class="ptolemy.kernel.util.StringAttribute" value="import ptolemy.data&#10;&#10;class Main:&#10;	@staticmethod&#10;	def zdt4(x):&#10;		import math&#10;		def h(f, g):&#10;			return 1.0 - math.sqrt(f / g)&#10;&#10;		def g(x):&#10;				result = 91.0&#10;&#10;				for i in range(1, 10):&#10;					result += pow(x[i], 2) - 10 * math.cos(4 * math.pi * x[i]);&#10;&#10;				return result&#10;		return g(x) * h(x[0], g(x))&#10;&#10;	def build_array(self, point):&#10;		arrToks = point.arrayValue()&#10;		return [i.doubleValue() for i in arrToks]&#10;&#10;	def fire(self) :&#10;		token = self.input.get(0)&#10;		values = self.build_array(token)&#10;		results = [values[0], self.zdt4(values)]&#10;&#10;		if self.actor.isDebugging():&#10;			self.actor.debug(&quot;Evaluating %s&quot; % values)&#10;			self.actor.debug(&quot;Results: %s&quot; % results)&#10;&#10;		#import time&#10;		#time.sleep(1)&#10;		self.o1.broadcast(ptolemy.data.DoubleToken(results[0]))&#10;		self.o2.broadcast(ptolemy.data.DoubleToken(results[1]))">
+        </property>
+<property name="KeplerDocumentation" class="ptolemy.vergil.basic.KeplerDocumentationAttribute">
+<property name="description" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
+<property name="author" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Xiaojun Liu</configure></property>
+<property name="version" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
+<property name="userLevelDocumentation" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>&#10;&#10;This actor executes a Python script. The default script has an&#10;input port and an output port. To view or edit the script, double-click&#10;on the actor.&#10;&lt;p&gt;&#10;&#10;As an example, a simplified version of the Scale actor can be&#10;implemented by the following script:&#10;&lt;/p&gt;&#10;&lt;pre&gt;&#10;1.  class Main :&#10;2. &quot;scale&quot;&#10;3.    def fire(self) :&#10;4.      if not self.input.hasToken(0) :&#10;5.        return&#10;6.      s = self.scale.getToken()&#10;7.      t = self.input.get(0)&#10;8.      self.output.broadcast(s.multiply(t))&#10;&lt;/pre&gt;&#10;Line 1 defines a Python class Main. This name is fixed. An instance&#10;of this&#10; class is created when the actor is initialized. Line&#10;2 is a description of&#10; the purpose of the script. Lines 3-8&#10;define the fire() method. In the method body,&#10; &lt;i&gt;input&lt;/i&gt;&#10;and &lt;i&gt;output&lt;/i&gt; are ports that have been&#10; added&#10;to the actor, and &lt;i&gt;scale&lt;/i&gt; is a parameter added to&#10;the actor (these can be added in the XML that defines the&#10; actor&#10;instance in an actor library).  The Main class can provide other&#10;&#10;methods in the Executable interface&#10; as needed.&#10; &lt;p&gt;&#10;&#10;In the script, use &lt;code&gt;self.actor&lt;/code&gt; to access&#10;the actor.  For example,&#10;&#10;&lt;code&gt;self.actor.getDirector()&lt;/code&gt; returns the current&#10;director of the&#10; actor. For debugging, use&#10;&lt;code&gt;self.actor.debug(someMessage)&lt;/code&gt;. The&#10;&#10;final message sent to the debug listeners of the actor will have&#10;the string&#10; &quot;From script: &quot; inserted at the beginning.&#10;To avoid generating the debug&#10; message when there are no&#10;listeners, use:&#10;&lt;pre&gt;&#10;if self.actor.isDebugging() :&#10;  self.actor.debug(someMessage)&#10;&lt;/pre&gt;&#10;&lt;p&gt;&#10;This class relies on Jython, which is a Java implementation of&#10;Python.&#10;&lt;/p&gt;&#10;Follow the links below for more information about the Python&#10;language,&#10; licensing, downloads, etc.&#10;&lt;p&gt;&lt;a href=&quot;http://www.python.org&quot; target=&quot;_top&quot;&gt;Python&lt;/a&gt;&lt;/p&gt;&#10;&lt;p&gt;&lt;a href=&quot;http://www.jython.org&quot; target=&quot;_top&quot;&gt;Jython&lt;/a&gt;&lt;/p&gt;&#10;&lt;p&gt;&lt;a href=&quot;http://www.jython.org/docs/differences.html&quot;&gt;Differences between Jython and the C version of Python&lt;/a&gt;&lt;/p&gt;&#10;&lt;p&gt;&lt;a&#10;href=&quot;http://www.jython.org/Project/userguide.html#the-jython-registry&quot;&gt;The&#10;Jython Registry&lt;/a&gt; - information about how to set the search&#10;path.&#10;&#10;&lt;/p&gt;&#10;</configure></property>
+</property>        <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:kepler-project.org/ns/:82593:333:3">
+        </property>
+        <property name="class" class="ptolemy.kernel.util.StringAttribute" value="ptolemy.actor.lib.python.PythonScript">
+            <property name="id" class="ptolemy.kernel.util.StringAttribute" value="urn:lsid:kepler-project.org:class:545:1">
+            </property>
+        </property>
+        <property name="semanticType00" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:2:1#GeneralPurpose">
+        </property>
+        <property name="_editorFactory" class="ptolemy.vergil.toolbox.TextEditorConfigureFactory">
+            <property name="attributeName" class="ptolemy.kernel.util.StringAttribute" value="script">
+            </property>
+        </property>
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[520.0, 305.0]">
+        </property>
+        <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:kepler-project.org:actor:545:1:urn:lsid:uuid:192e2da7-e712-4eab-a4ea-bb3bd13b7a4d:144:52">
+        </property>
+        <property name="" class="ptolemy.vergil.basic.DocAttribute">
+            <property name="description" class="ptolemy.kernel.util.StringAttribute" value="&#10;&#10;This actor executes a Python script. The default script has an&#10;input port and an output port. To view or edit the script, double-click&#10;on the actor.&#10;&lt;p&gt;&#10;&#10;As an example, a simplified version of the Scale actor can be&#10;implemented by the following script:&#10;&lt;/p&gt;&#10;&lt;pre&gt;&#10;1.  class Main :&#10;2. &quot;scale&quot;&#10;3.    def fire(self) :&#10;4.      if not self.input.hasToken(0) :&#10;5.        return&#10;6.      s = self.scale.getToken()&#10;7.      t = self.input.get(0)&#10;8.      self.output.broadcast(s.multiply(t))&#10;&lt;/pre&gt;&#10;Line 1 defines a Python class Main. This name is fixed. An instance&#10;of this&#10; class is created when the actor is initialized. Line&#10;2 is a description of&#10; the purpose of the script. Lines 3-8&#10;define the fire() method. In the method body,&#10; &lt;i&gt;input&lt;/i&gt;&#10;and &lt;i&gt;output&lt;/i&gt; are ports that have been&#10; added&#10;to the actor, and &lt;i&gt;scale&lt;/i&gt; is a parameter added to&#10;the actor (these can be added in the XML that defines the&#10; actor&#10;instance in an actor library).  The Main class can provide other&#10;&#10;methods in the Executable interface&#10; as needed.&#10; &lt;p&gt;&#10;&#10;In the script, use &lt;code&gt;self.actor&lt;/code&gt; to access&#10;the actor.  For example,&#10;&#10;&lt;code&gt;self.actor.getDirector()&lt;/code&gt; returns the current&#10;director of the&#10; actor. For debugging, use&#10;&lt;code&gt;self.actor.debug(someMessage)&lt;/code&gt;. The&#10;&#10;final message sent to the debug listeners of the actor will have&#10;the string&#10; &quot;From script: &quot; inserted at the beginning.&#10;To avoid generating the debug&#10; message when there are no&#10;listeners, use:&#10;&lt;pre&gt;&#10;if self.actor.isDebugging() :&#10;  self.actor.debug(someMessage)&#10;&lt;/pre&gt;&#10;&lt;p&gt;&#10;This class relies on Jython, which is a Java implementation of&#10;Python.&#10;&lt;/p&gt;&#10;Follow the links below for more information about the Python&#10;language,&#10; licensing, downloads, etc.&#10;&lt;p&gt;&lt;a href=&quot;http://www.python.org&quot; target=&quot;_top&quot;&gt;Python&lt;/a&gt;&lt;/p&gt;&#10;&lt;p&gt;&lt;a href=&quot;http://www.jython.org&quot; target=&quot;_top&quot;&gt;Jython&lt;/a&gt;&lt;/p&gt;&#10;&lt;p&gt;&lt;a href=&quot;http://www.jython.org/docs/differences.html&quot;&gt;Differences between Jython and the C version of Python&lt;/a&gt;&lt;/p&gt;&#10;&lt;p&gt;&lt;a&#10;href=&quot;http://www.jython.org/Project/userguide.html#the-jython-registry&quot;&gt;The&#10;Jython Registry&lt;/a&gt; - information about how to set the search&#10;path.&#10;&#10;&lt;/p&gt;&#10;">
+            </property>
+            <property name="author" class="ptolemy.kernel.util.StringAttribute" value="Xiaojun Liu">
+            </property>
+            <property name="version" class="ptolemy.kernel.util.StringAttribute" value="null">
+            </property>
+        </property>
+        <port name="input" class="ptolemy.actor.TypedIOPort">
+            <property name="input"/>
+        </port>
+        <port name="o1" class="ptolemy.actor.TypedIOPort">
+            <property name="output"/>
+            <property name="_type" class="ptolemy.actor.TypeAttribute" value="double">
+            </property>
+            <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="EAST">
+            </property>
+            <property name="_showName" class="ptolemy.data.expr.SingletonParameter" value="false">
+            </property>
+        </port>
+        <port name="o2" class="ptolemy.actor.TypedIOPort">
+            <property name="output"/>
+            <property name="_type" class="ptolemy.actor.TypeAttribute" value="double">
+            </property>
+            <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="EAST">
+            </property>
+            <property name="_showName" class="ptolemy.data.expr.SingletonParameter" value="false">
+            </property>
+        </port>
+    </entity>
+    <entity name="Nimrod/O Optim Actor" class="au.edu.uq.rcc.nimrod.optim.NimrodOptimActor">
+        <property name="OptimSettings" class="ptolemy.data.expr.StringParameter" value="mots2.loop_limit 1000&#10;mots2.stm_size 50">
+            <display name="Optimisation settings"/>
+        </property>
+        <property name="Algorithm" class="ptolemy.data.expr.Parameter" value="[Nimrod/A] Tabu Search">
+            <display name="Optimisation Algorithm"/>
+            <property name="Algorithm" class="au.edu.uq.rcc.nimrod.optim.AlgorithmicChoiceStyle">
+                <property name="MOTS2" class="ptolemy.kernel.util.StringAttribute" value="[Nimrod/A] Tabu Search">
+                </property>
+                <property name="SIMPLEX" class="ptolemy.kernel.util.StringAttribute" value="Simplex (Nelder-Mead)">
+                </property>
+            </property>
+        </property>
+        <property name="DefaultSettings" class="ptolemy.data.expr.Parameter" value="mots2.reduce 50&#10;mots2.loop_limit 1000&#10;mots2.n_regions 4&#10;mots2.diversify 25&#10;mots2.intensify 15&#10;mots2.ssrf 0.5&#10;mots2.start_step 10 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1&#10;mots2.stm_size 20&#10;mots2.n_sample 6&#10;mots2.eval_limit 0&#10;">
+            <display name="Default Settings"/>
+        </property>
+        <property name="ShowMonitor" class="ptolemy.data.expr.Parameter" value="true">
+            <display name="Show monitor?"/>
+        </property>
+        <property name="ObjectiveCount" class="ptolemy.data.expr.Parameter" value="2">
+            <display name="Number of Objectives"/>
+        </property>
+        <property name="RNGSeed" class="ptolemy.data.expr.Parameter" value="0">
+            <display name="RNG Seed (32-bit)"/>
+        </property>
+        <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:kepler-project.org/ns/:83159:127:31">
+        </property>
+        <property name="class" class="ptolemy.kernel.util.StringAttribute" value="au.edu.uq.rcc.nimrod.optim.NimrodOptimActor">
+            <property name="id" class="ptolemy.kernel.util.StringAttribute" value="urn:lsid:au.edu.uq.rcc.nimrod.optim:actor:3:1">
+            </property>
+        </property>
+        <property name="semanticType00" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:4:1#NimrodOKActors">
+        </property>
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[565.0, 190.0]">
+        </property>
+        <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:nimrod.monash.edu.au:actor:307:1:urn:lsid:uuid:192e2da7-e712-4eab-a4ea-bb3bd13b7a4d:411:8:urn:lsid:kepler-project.org/ns/:82198:195:84:urn:lsid:kepler-project.org/ns/:82499:13:4:urn:lsid:kepler-project.org/ns/:82593:7:112">
+        </property>
+        <port name="Objective1" class="ptolemy.actor.TypedIOPort">
+            <property name="input"/>
+            <display name="Evaluation Results 1"/>
+            <property name="type" class="ptolemy.actor.TypeAttribute" value="double">
+            </property>
+            <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="SOUTH">
+            </property>
+            <property name="tokenConsumptionRate" class="ptolemy.data.expr.Parameter" value="0">
+            </property>
+        </port>
+    </entity>
+    <entity name="XY Plotter" class="ptolemy.actor.lib.gui.XYPlotter">
+        <property name="fillOnWrapup" class="ptolemy.data.expr.Parameter" value="true">
+        </property>
+        <property name="automaticRescale" class="ptolemy.data.expr.Parameter" value="false">
+        </property>
+        <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={867, 249, 660, 575}, maximized=false}">
+        </property>
+        <property name="_plotSize" class="ptolemy.actor.gui.SizeAttribute" value="[644, 515]">
+        </property>
+        <property name="startingDataset" class="ptolemy.data.expr.Parameter" value="0">
+        </property>
+<property name="KeplerDocumentation" class="ptolemy.vergil.basic.KeplerDocumentationAttribute">
+<property name="description" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
+<property name="author" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Jie Liu</configure></property>
+<property name="version" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
+<property name="userLevelDocumentation" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>&lt;p&gt;The XYPlotter actor plots (x,y) points and displays the graph. The actor reads x and y double tokens via its two input multiports. Each time the actor iterates, it reads one token from each input channel.  &lt;/p&gt;&#10;&#10;&lt;p&gt;X and Y tokens received on the first channel of the input port&#10; are plotted together, as are the tokens received on the second channels, etc. The two input port must have the same width (i.e., the same number of input channels).&lt;/p&gt;</configure></property>
+<property name="port:inputY" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>A multiport that accepts doubles representing y-values. The port must have the same width (i.e., number of input channels) as the inputX port.</configure></property>
+<property name="port:inputX" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>A multiport that accepts one or more doubles representing x-values. The port must have the same width (i.e., number of input channels) as the inputY port.</configure></property>
+<property name="prop:fillOnWrapup" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Specify whether to rescale the plot so that all data is visible. By default, the actor scales the plot to fill the display area.</configure></property>
+<property name="prop:startingDataset" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>The starting dataset number to which data is plotted. The value must be a non-negative integer. The default is 0.</configure></property>
+<property name="prop:legend" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Annotations that will be displayed with the plot graph. Specify a comma-separated list of values that correspond to the input data sets (e.g., rainfall, temperature, elevation).</configure></property>
+</property>        <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:kepler-project.org:actor:11:1">
+        </property>
+        <property name="class" class="ptolemy.kernel.util.StringAttribute" value="ptolemy.actor.lib.gui.XYPlotter">
+            <property name="id" class="ptolemy.kernel.util.StringAttribute" value="urn:lsid:kepler-project.org:class:887:1">
+            </property>
+        </property>
+        <property name="semanticType00" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:1:1#Plotter">
+        </property>
+        <property name="semanticType11" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:2:1#GraphicalOutput">
+        </property>
+        <property name="semanticType22" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:5:1#ScatterPlot">
+        </property>
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[1030.0, 425.0]">
+        </property>
+        <configure>
+<?plotml <!DOCTYPE plot PUBLIC "-//UC Berkeley//DTD PlotML 1//EN"
+"http://ptolemy.eecs.berkeley.edu/xml/dtd/PlotML_1.dtd">
+<plot>
+<title>XY Plotter</title>
+<xLabel></xLabel>
+<yLabel></yLabel>
+<xRange min="0.0035743401478403117" max="0.978574340147841"/>
+<yRange min="37.88618241675753" max="99.20321619485382"/>
+<default connected="no" marks="dots"/>
+</plot>?>
+        </configure>
+    </entity>
+    <entity name="Array To Elements" class="ptolemy.actor.lib.ArrayToElements">
+<property name="KeplerDocumentation" class="ptolemy.vergil.basic.KeplerDocumentationAttribute">
+<property name="description" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
+<property name="author" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>unknown</configure></property>
+<property name="version" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
+<property name="userLevelDocumentation" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>&lt;p&gt;The ArrayToElements actor reads and disassembles an array. The actor outputs the disassembled values via a multiport output.&lt;/p&gt;&#10;&#10;&lt;p&gt;The actor can accept an array with any element type (e.g., int, double, etc.). Each time the actor fires, it reads and disassembles one array and outputs the individual values.&lt;/p&gt;&#10;&#10;&lt;p&gt;The actor's output port is a multiport, meaning that it can broadcast multiple channels of data. If the width of the output port is less than the number of array elements, then the extra output tokens are discarded (i.e., only the first elements in the array are output via the available channels).&lt;/p&gt;&#10;&#10;&lt;p&gt;The actor is similar to the ArrayToSequence actor, except that it outputs individual values on multiple channels of the output port. The ArrayToSequence actor outputs values as a sequence via a single output port.&lt;/p&gt;&#10;&#10;</configure></property>
+<property name="port:output" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>An output port that broadcasts the disassembled array values on multiple channels.</configure></property>
+<property name="port:input" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>An input port that accepts an array consisting of elements of any type.</configure></property>
+</property>        <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:kepler-project.org:actor:30:1">
+        </property>
+        <property name="class" class="ptolemy.kernel.util.StringAttribute" value="ptolemy.actor.lib.ArrayToElements">
+            <property name="id" class="ptolemy.kernel.util.StringAttribute" value="urn:lsid:kepler-project.org:class:906:1">
+            </property>
+        </property>
+        <property name="semanticType00" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:1:1#ArrayActor">
+        </property>
+        <property name="semanticType11" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:2:1#DataArrayOperation">
+        </property>
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[890.0, 420.0]">
+        </property>
+    </entity>
+    <entity name="Display" class="ptolemy.actor.lib.gui.Display">
+        <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={963, 5, 504, 304}, maximized=false}">
+        </property>
+        <property name="_paneSize" class="ptolemy.actor.gui.SizeAttribute" value="[488, 244]">
+        </property>
+        <property name="rowsDisplayed" class="ptolemy.data.expr.Parameter" value="10">
+        </property>
+        <property name="columnsDisplayed" class="ptolemy.data.expr.Parameter" value="40">
+        </property>
+        <property name="suppressBlankLines" class="ptolemy.data.expr.Parameter" value="false">
+        </property>
+        <property name="title" class="ptolemy.data.expr.StringParameter" value="">
+        </property>
+<property name="KeplerDocumentation" class="ptolemy.vergil.basic.KeplerDocumentationAttribute">
+<property name="description" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
+<property name="author" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Yuhong Xiong, Edward A. Lee</configure></property>
+<property name="version" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
+<property name="userLevelDocumentation" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>&lt;p&gt;The Display actor reads tokens of any type via its input multiport, and displays each token on a separate line in a text display window.&lt;/p&gt;&#10;&#10;&lt;p&gt;Specify the size of the text display window with the rowsDisplayed and columnsDisplayed parameters. Simply resizing the window onscreen does not persistently change the size when the workflow is saved, closed, and then re-opened. &lt;/p&gt;&#10;&#10;&lt;p&gt;If the input is a string token, then the actor strips the surrounding quotation marks before displaying the value.&lt;/p&gt; &#10;&#10;&lt;p&gt;Select the suppressBlankLines parameter to specify that the actor not add blank lines to the display. By default, the actor will add blank lines.&lt;/p&gt;&#10;&#10;&lt;p&gt;Note: this actor can consume large amounts of memory. It is not advisable to use it to display large output streams.&lt;/p&gt;</configure></property>
+<property name="port:input" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>A multiport that accepts tokens of any type.</configure></property>
+<property name="prop:suppressBlankLines" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Specify whether the actor should display blank lines (the default) or suppress them.</configure></property>
+<property name="prop:rowsDisplayed" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>The vertical size of the display, in rows. The value is an integer that defaults to 10.</configure></property>
+<property name="prop:columnsDisplayed" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>The horizontal size of the display, in columns. The value is an integer that defaults to 40.</configure></property>
+<property name="prop:title" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>The title of the text display window. If specified, the value will appear in the title bar of the text display window.</configure></property>
+</property>        <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:kepler-project.org:actor:7:1">
+        </property>
+        <property name="class" class="ptolemy.kernel.util.StringAttribute" value="ptolemy.actor.lib.gui.Display">
+            <property name="id" class="ptolemy.kernel.util.StringAttribute" value="urn:lsid:kepler-project.org:class:883:1">
+            </property>
+        </property>
+        <property name="semanticType00" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:1:1#TextualOutputActor">
+        </property>
+        <property name="semanticType11" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:2:1#TextualOutput">
+        </property>
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[1055.0, 335.0]">
+        </property>
+    </entity>
+    <entity name="Record Disassembler2" class="ptolemy.actor.lib.RecordDisassembler">
+<property name="KeplerDocumentation" class="ptolemy.vergil.basic.KeplerDocumentationAttribute">
+<property name="description" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
+<property name="author" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Yuhong Xiong</configure></property>
+<property name="version" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
+<property name="userLevelDocumentation" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>&#10;&lt;p&gt;The RecordDisassembler actor receives a record, which it disassembles and outputs via user-specified output ports. The actor reads and disassembles one record each time it fires.&lt;/p&gt;&#10;&#10;&lt;p&gt;A record is a composite data type consisting of one or more elements. Each element is named and can have a distinct type. For example, {number=1, name=&quot;dog&quot;} is a record containing two elements. The first element, named &quot;number&quot;, contains an integer value. The second element, named &quot;name&quot;, contains a string value. &lt;/p&gt;&#10;&#10;&lt;p&gt;The name of each record element must match the name of a user-specified output port. For example, if the input record is {day=&quot;Monday&quot;, week=5, month=12}, the output ports must be named &quot;day&quot;, &quot;week&quot; and &quot;month&quot;. If the record contains more fields than the actor has output ports, the extra fields are ignored.&lt;/p&gt;&#10;&#10;</configure></property>
+<property name="port:input" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>An input port that accepts a record, which the actor will disassemble. </configure></property>
+</property>        <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:kepler-project.org/ns/:82198:220:3">
+        </property>
+        <property name="class" class="ptolemy.kernel.util.StringAttribute" value="ptolemy.actor.lib.RecordDisassembler">
+            <property name="id" class="ptolemy.kernel.util.StringAttribute" value="urn:lsid:kepler-project.org:class:924:1">
+            </property>
+        </property>
+        <property name="semanticType00" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:1:1#RecordActor">
+        </property>
+        <property name="semanticType11" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:2:1#DataStructureOperation">
+        </property>
+        <property name="_location" class="ptolemy.kernel.util.Location" value="{920.0, 270.0}">
+        </property>
+        <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:kepler-project.org:actor:48:1">
+        </property>
+        <property name="_hideName" class="ptolemy.data.expr.SingletonParameter" value="true">
+        </property>
+        <port name="Objectives" class="ptolemy.actor.TypedIOPort">
+            <property name="output"/>
+            <property name="_showName" class="ptolemy.data.expr.SingletonParameter" value="true">
+            </property>
+        </port>
+        <port name="Parameters" class="ptolemy.actor.TypedIOPort">
+            <property name="output"/>
+            <property name="_showName" class="ptolemy.data.expr.SingletonParameter" value="true">
+            </property>
+        </port>
+    </entity>
+    <entity name="Array To Sequence" class="ptolemy.domains.sdf.lib.ArrayToSequence">
+        <property name="arrayLength" class="ptolemy.data.expr.Parameter" value="1">
+        </property>
+        <property name="enforceArrayLength" class="ptolemy.data.expr.Parameter" value="false">
+        </property>
+<property name="KeplerDocumentation" class="ptolemy.vergil.basic.KeplerDocumentationAttribute">
+<property name="description" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
+<property name="author" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>unknown</configure></property>
+<property name="version" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
+<property name="userLevelDocumentation" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>&lt;p&gt;The ArrayToSequence actor  outputs the individual values of an array as a sequence of tokens.&lt;/p&gt;&#10;&#10;&lt;p&gt;The actor can accept an array with any element type (e.g., int, double, etc.). Each time the actor fires, it reads and disassembles one array and outputs a sequence of values.&lt;/p&gt;&#10;&#10;&lt;p&gt;The arrayLength parameter can be used to specify the length of the source array. If the enforceArrayLength parameter is selected, then the actor will only accept arrays of the specified length. The enforceArrayLength parameter should be selected if using an SDF director. If using other directors, such as DE or PN, the enforceArrayLength parameter can be deselected, in which case the arrayLength parameter is ignored.&lt;/p&gt;&#10;&#10;&lt;p&gt;The ArrayToSequence actor is similar to the ArrayToElements actor, except that it outputs values as a sequence via a single output port. The ArrayToElements actor outputs individual values on multiple channels of the output port. Use the ArrayAccumulator actor to convert an array into a single string, where each value is separated by a specified separator.&lt;/p&gt;</configure></property>
+<property name="port:input" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>An input port that accepts an array of elements of any type.</configure></property>
+<property name="port:output" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>An output port that broadcasts a sequence of the disassembled array values. </configure></property>
+<property name="prop:enforceArrayLength" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Specify whether or not to enforce the arrayLength parameter. By default, the arrayLength is enforced, and the actor will only accept arrays of the specified length.</configure></property>
+<property name="prop:arrayLength" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>The size of the input array. The default is 1.</configure></property>
+</property>        <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:kepler-project.org/ns/:82198:208:10">
+        </property>
+        <property name="class" class="ptolemy.kernel.util.StringAttribute" value="ptolemy.domains.sdf.lib.ArrayToSequence">
+            <property name="id" class="ptolemy.kernel.util.StringAttribute" value="urn:lsid:kepler-project.org:class:907:1">
+            </property>
+        </property>
+        <property name="semanticType00" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:1:1#ArrayActor">
+        </property>
+        <property name="semanticType11" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:2:1#DataArrayOperation">
+        </property>
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[785.0, 270.0]">
+        </property>
+        <property name="" class="ptolemy.vergil.basic.DocAttribute">
+            <property name="description" class="ptolemy.kernel.util.StringAttribute" value="&lt;p&gt;The ArrayToSequence actor  outputs the individual values of an array as a sequence of tokens.&lt;/p&gt;&#10;&#10;&lt;p&gt;The actor can accept an array with any element type (e.g., int, double, etc.). Each time the actor fires, it reads and disassembles one array and outputs a sequence of values.&lt;/p&gt;&#10;&#10;&lt;p&gt;The arrayLength parameter can be used to specify the length of the source array. If the enforceArrayLength parameter is selected, then the actor will only accept arrays of the specified length. The enforceArrayLength parameter should be selected if using an SDF director. If using other directors, such as DE or PN, the enforceArrayLength parameter can be deselected, in which case the arrayLength parameter is ignored.&lt;/p&gt;&#10;&#10;&lt;p&gt;The ArrayToSequence actor is similar to the ArrayToElements actor, except that it outputs values as a sequence via a single output port. The ArrayToElements actor outputs individual values on multiple channels of the output port. Use the ArrayAccumulator actor to convert an array into a single string, where each value is separated by a specified separator.&lt;/p&gt;">
+            </property>
+            <property name="author" class="ptolemy.kernel.util.StringAttribute" value="unknown">
+            </property>
+            <property name="version" class="ptolemy.kernel.util.StringAttribute" value="null">
+            </property>
+            <property name="arrayLength (parameter)" class="ptolemy.data.expr.StringParameter" value="The size of the input array. The default is 1.">
+            </property>
+            <property name="enforceArrayLength (parameter)" class="ptolemy.data.expr.StringParameter" value="Specify whether or not to enforce the arrayLength parameter. By default, the arrayLength is enforced, and the actor will only accept arrays of the specified length.">
+            </property>
+            <property name="input (port)" class="ptolemy.kernel.util.StringAttribute" value="An input port that accepts an array of elements of any type.">
+            </property>
+            <property name="output (port)" class="ptolemy.kernel.util.StringAttribute" value="An output port that broadcasts a sequence of the disassembled array values. ">
+            </property>
+        </property>
+        <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:kepler-project.org:actor:31:1">
+        </property>
+        <property name="_hideName" class="ptolemy.data.expr.SingletonParameter" value="true">
+        </property>
+        <port name="input" class="ptolemy.actor.TypedIOPort">
+            <property name="input"/>
+            <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="NORTH">
+            </property>
+        </port>
+    </entity>
+    <entity name="Record Disassembler" class="ptolemy.actor.lib.RecordDisassembler">
+<property name="KeplerDocumentation" class="ptolemy.vergil.basic.KeplerDocumentationAttribute">
+<property name="description" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
+<property name="author" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Yuhong Xiong</configure></property>
+<property name="version" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
+<property name="userLevelDocumentation" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>&#10;&lt;p&gt;The RecordDisassembler actor receives a record, which it disassembles and outputs via user-specified output ports. The actor reads and disassembles one record each time it fires.&lt;/p&gt;&#10;&#10;&lt;p&gt;A record is a composite data type consisting of one or more elements. Each element is named and can have a distinct type. For example, {number=1, name=&quot;dog&quot;} is a record containing two elements. The first element, named &quot;number&quot;, contains an integer value. The second element, named &quot;name&quot;, contains a string value. &lt;/p&gt;&#10;&#10;&lt;p&gt;The name of each record element must match the name of a user-specified output port. For example, if the input record is {day=&quot;Monday&quot;, week=5, month=12}, the output ports must be named &quot;day&quot;, &quot;week&quot; and &quot;month&quot;. If the record contains more fields than the actor has output ports, the extra fields are ignored.&lt;/p&gt;&#10;&#10;</configure></property>
+<property name="port:input" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>An input port that accepts a record, which the actor will disassemble. </configure></property>
+</property>        <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:kepler-project.org/ns/:82198:199:10">
+        </property>
+        <property name="class" class="ptolemy.kernel.util.StringAttribute" value="ptolemy.actor.lib.RecordDisassembler">
+            <property name="id" class="ptolemy.kernel.util.StringAttribute" value="urn:lsid:kepler-project.org:class:924:1">
+            </property>
+        </property>
+        <property name="semanticType00" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:1:1#RecordActor">
+        </property>
+        <property name="semanticType11" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:2:1#DataStructureOperation">
+        </property>
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[705.0, 180.0]">
+        </property>
+        <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:kepler-project.org:actor:48:1">
+        </property>
+        <property name="_hideName" class="ptolemy.data.expr.SingletonParameter" value="true">
+        </property>
+        <port name="Results" class="ptolemy.actor.TypedIOPort">
+            <property name="output"/>
+            <property name="_showName" class="ptolemy.data.expr.SingletonParameter" value="true">
+            </property>
+        </port>
+        <port name="Parameters" class="ptolemy.actor.TypedIOPort">
+            <property name="output"/>
+            <property name="_showName" class="ptolemy.data.expr.SingletonParameter" value="true">
+            </property>
+        </port>
+    </entity>
+    <entity name="Evaluation Plotter" class="ptolemy.actor.lib.gui.XYPlotter">
+        <property name="fillOnWrapup" class="ptolemy.data.expr.Parameter" value="true">
+        </property>
+        <property name="automaticRescale" class="ptolemy.data.expr.Parameter" value="false">
+        </property>
+        <property name="_windowProperties" class="ptolemy.actor.gui.WindowPropertiesAttribute" value="{bounds={2, 264, 660, 575}, maximized=false}">
+        </property>
+        <property name="_plotSize" class="ptolemy.actor.gui.SizeAttribute" value="[644, 515]">
+        </property>
+        <property name="startingDataset" class="ptolemy.data.expr.Parameter" value="0">
+        </property>
+<property name="KeplerDocumentation" class="ptolemy.vergil.basic.KeplerDocumentationAttribute">
+<property name="description" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
+<property name="author" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Jie Liu</configure></property>
+<property name="version" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>null</configure></property>
+<property name="userLevelDocumentation" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>&lt;p&gt;The XYPlotter actor plots (x,y) points and displays the graph. The actor reads x and y double tokens via its two input multiports. Each time the actor iterates, it reads one token from each input channel.  &lt;/p&gt;&#10;&#10;&lt;p&gt;X and Y tokens received on the first channel of the input port&#10; are plotted together, as are the tokens received on the second channels, etc. The two input port must have the same width (i.e., the same number of input channels).&lt;/p&gt;</configure></property>
+<property name="port:inputY" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>A multiport that accepts doubles representing y-values. The port must have the same width (i.e., number of input channels) as the inputX port.</configure></property>
+<property name="port:inputX" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>A multiport that accepts one or more doubles representing x-values. The port must have the same width (i.e., number of input channels) as the inputY port.</configure></property>
+<property name="prop:fillOnWrapup" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Specify whether to rescale the plot so that all data is visible. By default, the actor scales the plot to fill the display area.</configure></property>
+<property name="prop:legend" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>Annotations that will be displayed with the plot graph. Specify a comma-separated list of values that correspond to the input data sets (e.g., rainfall, temperature, elevation).</configure></property>
+<property name="prop:startingDataset" class="ptolemy.kernel.util.ConfigurableAttribute"><configure>The starting dataset number to which data is plotted. The value must be a non-negative integer. The default is 0.</configure></property>
+</property>        <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:kepler-project.org/ns/:82593:77:1">
+        </property>
+        <property name="class" class="ptolemy.kernel.util.StringAttribute" value="ptolemy.actor.lib.gui.XYPlotter">
+            <property name="id" class="ptolemy.kernel.util.StringAttribute" value="urn:lsid:kepler-project.org:class:887:1">
+            </property>
+        </property>
+        <property name="semanticType00" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:1:1#Plotter">
+        </property>
+        <property name="semanticType11" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:2:1#GraphicalOutput">
+        </property>
+        <property name="semanticType22" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:5:1#ScatterPlot">
+        </property>
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[740.0, 435.0]">
+        </property>
+        <property name="" class="ptolemy.vergil.basic.DocAttribute">
+            <property name="description" class="ptolemy.kernel.util.StringAttribute" value="&lt;p&gt;The XYPlotter actor plots (x,y) points and displays the graph. The actor reads x and y double tokens via its two input multiports. Each time the actor iterates, it reads one token from each input channel.  &lt;/p&gt;&#10;&#10;&lt;p&gt;X and Y tokens received on the first channel of the input port&#10; are plotted together, as are the tokens received on the second channels, etc. The two input port must have the same width (i.e., the same number of input channels).&lt;/p&gt;">
+            </property>
+            <property name="author" class="ptolemy.kernel.util.StringAttribute" value="Jie Liu">
+            </property>
+            <property name="version" class="ptolemy.kernel.util.StringAttribute" value="null">
+            </property>
+            <property name="fillOnWrapup (parameter)" class="ptolemy.data.expr.StringParameter" value="Specify whether to rescale the plot so that all data is visible. By default, the actor scales the plot to fill the display area.">
+            </property>
+            <property name="legend (parameter)" class="ptolemy.data.expr.StringParameter" value="Annotations that will be displayed with the plot graph. Specify a comma-separated list of values that correspond to the input data sets (e.g., rainfall, temperature, elevation).">
+            </property>
+            <property name="startingDataset (parameter)" class="ptolemy.data.expr.StringParameter" value="The starting dataset number to which data is plotted. The value must be a non-negative integer. The default is 0.">
+            </property>
+            <property name="inputX (port)" class="ptolemy.kernel.util.StringAttribute" value="A multiport that accepts one or more doubles representing x-values. The port must have the same width (i.e., number of input channels) as the inputY port.">
+            </property>
+            <property name="inputY (port)" class="ptolemy.kernel.util.StringAttribute" value="A multiport that accepts doubles representing y-values. The port must have the same width (i.e., number of input channels) as the inputX port.">
+            </property>
+        </property>
+        <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:kepler-project.org:actor:11:1">
+        </property>
+        <configure>
+<?plotml <!DOCTYPE plot PUBLIC "-//UC Berkeley//DTD PlotML 1//EN"
+"http://ptolemy.eecs.berkeley.edu/xml/dtd/PlotML_1.dtd">
+<plot>
+<title>Evaluations</title>
+<xLabel></xLabel>
+<yLabel></yLabel>
+<xRange min="0.0035743401478403117" max="0.990722785714783"/>
+<yRange min="37.88618241675753" max="237.68996206934102"/>
+<default connected="no" marks="dots"/>
+</plot>?>
+        </configure>
+    </entity>
+    <entity name="Stats Parser Actor" class="au.edu.uq.rcc.nimrod.optim.StatsParserActor">
+        <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:kepler-project.org/ns/:82593:9:4">
+        </property>
+        <property name="class" class="ptolemy.kernel.util.StringAttribute" value="au.edu.uq.rcc.nimrod.optim.StatsParserActor">
+            <property name="id" class="ptolemy.kernel.util.StringAttribute" value="urn:lsid:au.edu.uq.rcc.nimrod.optim:actor:4:1">
+            </property>
+        </property>
+        <property name="semanticType00" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:4:1#NimrodOKActors">
+        </property>
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[615.0, 385.0]">
+        </property>
+        <property name="derivedFrom" class="org.kepler.moml.NamedObjIdReferralList" value="urn:lsid:nimrod.monash.edu.au:actor:308:1">
+        </property>
+        <property name="_hideName" class="ptolemy.data.expr.SingletonParameter" value="true">
+        </property>
+        <port name="Input" class="ptolemy.actor.TypedIOPort">
+            <property name="input"/>
+            <property name="_cardinal" class="ptolemy.kernel.util.StringAttribute" value="NORTH">
+            </property>
+        </port>
+        <port name="Pareto" class="ptolemy.actor.TypedIOPort">
+            <property name="output"/>
+            <property name="multiport"/>
+            <property name="_showName" class="ptolemy.data.expr.SingletonParameter" value="true">
+            </property>
+        </port>
+        <port name="Design Vector" class="ptolemy.actor.TypedIOPort">
+            <property name="output"/>
+            <property name="multiport"/>
+            <property name="_showName" class="ptolemy.data.expr.SingletonParameter" value="true">
+            </property>
+        </port>
+        <port name="Objective Vector" class="ptolemy.actor.TypedIOPort">
+            <property name="output"/>
+            <property name="multiport"/>
+            <property name="_showName" class="ptolemy.data.expr.SingletonParameter" value="true">
+            </property>
+        </port>
+        <port name="Messages" class="ptolemy.actor.TypedIOPort">
+            <property name="output"/>
+            <property name="_showName" class="ptolemy.data.expr.SingletonParameter" value="true">
+            </property>
+        </port>
+    </entity>
+    <entity name="Point to Array Actor" class="au.edu.uq.rcc.nimrod.optim.Point2ArrayActor">
+        <property name="entityId" class="org.kepler.moml.NamedObjId" value="urn:lsid:au.edu.uq.rcc.nimrod.optim:actor:5:1">
+        </property>
+        <property name="class" class="ptolemy.kernel.util.StringAttribute" value="au.edu.uq.rcc.nimrod.optim.Point2ArrayActor">
+            <property name="id" class="ptolemy.kernel.util.StringAttribute" value="urn:lsid:au.edu.uq.rcc.nimrod.optim:actor:5:1">
+            </property>
+        </property>
+        <property name="semanticType00" class="org.kepler.sms.SemanticType" value="urn:lsid:localhost:onto:4:1#NimrodOKActors">
+        </property>
+        <property name="_location" class="ptolemy.kernel.util.Location" value="[370.0, 305.0]">
+        </property>
+    </entity>
+    <relation name="relation2" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation5" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation15" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation8" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation9" class="ptolemy.actor.TypedIORelation">
+        <vertex name="vertex1" value="[1005.0, 375.0]">
+        </vertex>
+    </relation>
+    <relation name="relation7" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation10" class="ptolemy.actor.TypedIORelation">
+        <property name="width" class="ptolemy.data.expr.Parameter" value="1">
+        </property>
+    </relation>
+    <relation name="relation11" class="ptolemy.actor.TypedIORelation">
+        <property name="width" class="ptolemy.data.expr.Parameter" value="1">
+        </property>
+    </relation>
+    <relation name="relation13" class="ptolemy.actor.TypedIORelation">
+        <property name="width" class="ptolemy.data.expr.Parameter" value="1">
+        </property>
+    </relation>
+    <relation name="relation14" class="ptolemy.actor.TypedIORelation">
+        <property name="width" class="ptolemy.data.expr.Parameter" value="1">
+        </property>
+    </relation>
+    <relation name="relation12" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation3" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation4" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <relation name="relation6" class="ptolemy.actor.TypedIORelation">
+    </relation>
+    <link port="SelectPoint Actor.Search Space" relation="relation2"/>
+    <link port="SelectPoint Actor.Starting Points" relation="relation"/>
+    <link port="Define Search Space Actor.output" relation="relation2"/>
+    <link port="ZDT4.input" relation="relation12"/>
+    <link port="ZDT4.o1" relation="relation3"/>
+    <link port="ZDT4.o2" relation="relation5"/>
+    <link port="Nimrod/O Optim Actor.StartingPoints" relation="relation"/>
+    <link port="Nimrod/O Optim Actor.OptimalPoint" relation="relation6"/>
+    <link port="Nimrod/O Optim Actor.Statistics" relation="relation7"/>
+    <link port="Nimrod/O Optim Actor.EvalOutput" relation="relation4"/>
+    <link port="Nimrod/O Optim Actor.Objective0" relation="relation3"/>
+    <link port="Nimrod/O Optim Actor.Objective1" relation="relation5"/>
+    <link port="XY Plotter.inputX" relation="relation10"/>
+    <link port="XY Plotter.inputY" relation="relation11"/>
+    <link port="Array To Elements.input" relation="relation9"/>
+    <link port="Array To Elements.output" relation="relation10"/>
+    <link port="Array To Elements.output" relation="relation11"/>
+    <link port="Display.input" relation="relation9"/>
+    <link port="Record Disassembler2.input" relation="relation15"/>
+    <link port="Record Disassembler2.Objectives" relation="relation9"/>
+    <link port="Array To Sequence.input" relation="relation8"/>
+    <link port="Array To Sequence.output" relation="relation15"/>
+    <link port="Record Disassembler.input" relation="relation6"/>
+    <link port="Record Disassembler.Results" relation="relation8"/>
+    <link port="Evaluation Plotter.inputX" relation="relation13"/>
+    <link port="Evaluation Plotter.inputY" relation="relation14"/>
+    <link port="Stats Parser Actor.Input" relation="relation7"/>
+    <link port="Stats Parser Actor.Objective Vector" relation="relation13"/>
+    <link port="Stats Parser Actor.Objective Vector" relation="relation14"/>
+    <link port="Point to Array Actor.input" relation="relation4"/>
+    <link port="Point to Array Actor.output" relation="relation12"/>
+</entity>

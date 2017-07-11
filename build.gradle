@@ -1,0 +1,92 @@
+/* These are imported for autocompletion when editing in an IDE. */
+import org.gradle.api.*;
+import org.gradle.api.file.*;
+
+import org.gradle.api.artifacts.*
+
+apply plugin: 'base'
+apply from: file('actors.gradle')
+apply from: file('nimrod.gradle')
+
+subprojects {
+	apply plugin: 'java'
+
+	sourceCompatibility = '1.7'
+	[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+
+	test {
+		classpath = project.sourceSets.test.runtimeClasspath + files("${projectDir}/module/lib")
+	}
+}
+
+ext {
+	moduleStagingDir = "${buildDir}/module-staging"
+	stagingDir = "${buildDir}/staging"
+}
+
+task cleanStaging(type: Delete) {
+	delete stagingDir
+}
+
+// Install nimroda and nimrodok-ganesh into ${stagingDir}/lib/nimrodok-modules
+task installModuleStaging(type: Copy, dependsOn: [cleanStaging, ":nimrodok-ganesh:installStaging", ":nimroda:installStaging"]) {
+	from(moduleStagingDir) into("${stagingDir}/lib/nimrodok-modules")
+}
+
+// Install everything into ${stagingDir}
+task installStaging(dependsOn: [cleanStaging, installModuleStaging, ":nimrodok:installStaging"]) {
+	
+}
+
+// Copy everything from ${stagingDir} to ${keplerPath}/${moduleFolderName}
+task install(type: Copy, dependsOn: [installStaging, ":nimrodok:invasiveInstall"]) {
+	doFirst {
+		if(keplerVersion.isSource) {
+			throw new GradleException("Can only install into a binary installation");
+		}
+	}
+	from(stagingDir) into("${keplerPath}/${moduleFolderName}")
+}
+
+// "Seed" a source installation of Kepler
+task seed(type: Copy, dependsOn: [installModuleStaging, "nimrodok:seedStaging"]) {
+	doFirst {
+		if(!keplerVersion.isSource) {
+			throw new GradleException("Can only seed a source installation");
+		}
+	}
+	from(stagingDir) into("${keplerPath}/${moduleFolderName}")
+	
+}
+
+//
+//task runKepler(type: JavaExec, dependsOn: install) {
+//	classpath "${keplerPath}/kepler.jar"
+//	main = 'org.kepler.build.runner.Kepler'
+//	//classpath "${keplerPath}/loader-2.3.0/target/loader-2.3.jar"
+//	//main = 'org.kepler.Kepler'
+//}
+
+task(help) {
+	doLast {
+		System.out.print('''Nimrod/OK module integration.
+
+Note:  You must have the KEPLER environment variable set.
+
+Note:  You must also update build.props with the correct LSID.
+       The last number used can be found in $KEPLER/src/actors/README
+
+Note: You must have Nimrod/K installed.
+
+Note:  Make sure the icons are mapped in:
+       ${KEPLER}/configs/ptolemy/configs/kepler/uiSVGIconMappingsByClass.properties
+
+To integrate the Nimrod/K modules into KEPLER:
+    gradle install
+
+To clean the Nimrod modules from Kepler:
+    gradle nimrod_clean
+''')
+	}
+}
+

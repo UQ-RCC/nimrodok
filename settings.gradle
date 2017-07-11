@@ -1,0 +1,5 @@
+rootProject.name = 'nimrod-ok'
+
+include 'nimroda'
+include 'nimrodok-ganesh'
+include 'nimrodok'

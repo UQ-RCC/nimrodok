@@ -1,0 +1,81 @@
+import au.edu.uq.rcc.nimrod.optim.build.KeplerVersion;
+import java.nio.file.Paths;
+
+ext {
+	/* Find Kepler */
+	keplerPath = System.getenv('KEPLER')
+	//keplerPath = "/media/Data/Programs/Kepler-2.4"
+	//keplerPath = "/media/Data/Coding/kepler-trunk3"
+	//keplerPath = "/media/Data/Programs/Kepler-2.5"
+	//keplerPath = "/media/Data/Coding/kepler-2.5"
+	//keplerPath = "/home/zane/Desktop/kepler-2.4"
+	//keplerPath = "/home/zane/Desktop/Kepler-2.5"
+
+	if(keplerPath == null) {
+		throw new GradleException("KEPLER environment variable not found.");
+	}
+
+	keplerPath = Paths.get(keplerPath)
+	
+	keplerVersion = KeplerVersion.getKeplerVersion(keplerPath);
+	if(keplerVersion.isSource) {
+		System.out.println("Found source installation at $keplerPath");
+	} else {
+		System.out.println("Found Kepler ${keplerVersion.version} installation at $keplerPath");
+	}
+
+	guiMappingFile = "${keplerPath}/${keplerVersion.getModuleFolderName("gui")}/resources/configurations/uiSVGIconMappingsByClass.xml"
+	println "  Icon Mappings:   ${guiMappingFile}"
+	
+	ontologyFile = "${keplerPath}/${keplerVersion.getModuleFolderName("common")}/configs/ptolemy/configs/kepler/ontologies/ontology_catalog.xml"
+	println "  Ontolgies:       ${ontologyFile}"
+
+	moduleInfoFile = "${keplerPath}/${keplerVersion.getModuleFolderName("kepler")}/module-info/modules.txt"
+	println "  Modules:         ${moduleInfoFile}"
+	
+	buildModuleInfoFile = "${keplerPath}/build-area/modules.txt"
+	println "  Modules (Build): ${buildModuleInfoFile}"
+
+
+	keplerVersionValue = "${keplerVersion.completeVersion}"
+	safeProjectName = "${rootProject.name}".toLowerCase()
+
+	if(keplerVersion.isSource) {
+		moduleFolderName = safeProjectName
+	} else {
+		moduleFolderName = "${safeProjectName}-${keplerVersion.completeVersion}"
+	}
+	
+	moduleJarName = "${safeProjectName}-${keplerVersion.version}"
+
+	/* Find Nimrod/K */
+	try {
+		nimrodKNew = keplerPath.resolve(keplerVersion.getModuleFolderName("nimrod-k"))
+	} catch(IOException e) {
+		nimrodKNew = null;
+	}
+	
+	try {
+		nimrodKOld = keplerPath.resolve(keplerVersion.getModuleFolderName("nimrodk"))
+	} catch(IOException e) {
+		nimrodKOld = null;
+	}
+
+	nimrodKPath = null
+	if(nimrodKNew != null) {
+		nimrodKPath = nimrodKNew
+		nimrodK = "nimrod-k"
+		nimrodKModule = nimrodKNew.getFileName().toString()
+	} else if(nimrodKOld != null) {
+		nimrodKPath = nimrodKOld
+		nimrodK = "nimrodk"
+		nimrodKModule = nimrodKOld.getFileName().toString()
+	}
+
+	if(nimrodKPath == null) {
+		throw new GradleException("You must install Nimrod/K before installing Nimrod/OK. Cannot find \"${nimrodKNew}\" or \"${nimrodKOld}\"");
+	}
+
+	println "Found Nimrod/K at ${nimrodKPath}"
+
+}

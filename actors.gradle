@@ -1,0 +1,34 @@
+import au.edu.uq.rcc.nimrod.optim.build.ActorDefinition;
+
+ext {
+	actorDefinitions = [
+		new ActorDefinition(
+			name: "Define Search Space Actor",		klass:"au.edu.uq.rcc.nimrod.optim.DefineSearchSpaceActor",
+			icon: "nimrodok",						entity:"urn:lsid:au.edu.uq.rcc.nimrod.optim:actor:1:1"
+		),
+		new ActorDefinition(
+			name:"Select Point Actor",				klass:"au.edu.uq.rcc.nimrod.optim.SelectPointsActor",		
+			icon:"nimrodok",						entity:"urn:lsid:au.edu.uq.rcc.nimrod.optim:actor:2:1"
+		),
+		new ActorDefinition(
+			name:"Optimisation Actor",				klass:"au.edu.uq.rcc.nimrod.optim.NimrodOptimActor",		
+			icon:"nimrodok",						entity:"urn:lsid:au.edu.uq.rcc.nimrod.optim:actor:3:1"
+		),
+		new ActorDefinition(
+			name:"Stats Parser Actor",				klass:"au.edu.uq.rcc.nimrod.optim.StatsParserActor",		
+			icon:"nimrodok",						entity:"urn:lsid:au.edu.uq.rcc.nimrod.optim:actor:4:1"
+		),
+		new ActorDefinition(
+			name:"Point to Array Actor",			klass:"au.edu.uq.rcc.nimrod.optim.Point2ArrayActor",		
+			icon:"nimrodok-point2array",			entity:"urn:lsid:au.edu.uq.rcc.nimrod.optim:actor:5:1"
+		),
+		new ActorDefinition(
+			name:"Cache Actor",						klass:"au.edu.uq.rcc.nimrod.optim.CacheActor",		
+			icon:"nimrodok-cache",					entity:"urn:lsid:au.edu.uq.rcc.nimrod.optim:actor:6:1"
+		),
+		new ActorDefinition(
+			name:"Parallel Coordinates Actor",		klass:"au.edu.uq.rcc.nimrod.optim.ParPlotActor",
+			icon:"nimrodok",						entity:"urn:lsid:au.edu.uq.rcc.nimrod.optim:actor:7:1"
+		),
+	]
+}

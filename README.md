@@ -7,6 +7,15 @@ There are several ways to install Nimrod/OK.
 ### Kepler
 
 Install Kepler via SVN - recommended and easiest method - the embedded version of Nimrod/OK is guaranteed to be the most stable current version. See [here](https://kepler-project.org/developers/teams/build/documentation/build-system-instructions) for instructions.
+Alternatively, here is an example of the commands that should be run for reference. This assumes that you're installing Kepler to ```/tmp/ksvn```.
+
+* ```mkdir /tmp/ksvn```
+* ```cd /tmp/ksvn```
+* ```svn co https://code.kepler-project.org/code/kepler/trunk/modules/build-area```
+* ```cd build-area```
+* ```ant change-to -Dsuite=nimrod-ok```
+* ```rm -rf ~/.kepler ~/KeplerData```
+* ```ant run```
 
 ### Manual Installation
 

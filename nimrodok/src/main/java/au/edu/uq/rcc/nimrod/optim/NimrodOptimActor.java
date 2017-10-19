@@ -270,9 +270,9 @@ public class NimrodOptimActor extends NimrodAtomicActor<BasicFunctions> implemen
 
 		List l = inputPortList();
 		for(Iterator ip = l.iterator(); ip.hasNext();) {
-			IOPort io = (IOPort) ip.next();
+			IOPort io = (IOPort)ip.next();
 			if(io.getAttribute("tokenConsumptionRate") != null) {
-				((Parameter) io.getAttribute("tokenConsumptionRate")).setToken(IntToken.ZERO);
+				((Parameter)io.getAttribute("tokenConsumptionRate")).setToken(IntToken.ZERO);
 			} else {
 				try {
 					new Parameter(io, "tokenConsumptionRate", IntToken.ZERO);
@@ -284,7 +284,7 @@ public class NimrodOptimActor extends NimrodAtomicActor<BasicFunctions> implemen
 
 		m_Monitor.reset();
 
-		if(((BooleanToken) m_ParamShowMonitor.getToken()).booleanValue()) {
+		if(((BooleanToken)m_ParamShowMonitor.getToken()).booleanValue()) {
 			m_Monitor.open();
 		}
 	}
@@ -453,7 +453,7 @@ public class NimrodOptimActor extends NimrodAtomicActor<BasicFunctions> implemen
 	@Override
 	public void attributeChanged(Attribute attribute) throws IllegalActionException {
 		if(attribute == convSettings) {
-			convString = (((StringToken) convSettings.getToken()).stringValue()).replaceAll("\\\\n", "\n");
+			convString = (((StringToken)convSettings.getToken()).stringValue()).replaceAll("\\\\n", "\n");
 			if(convString.length() != 0) {
 				ConvergenceTest ctest = new ConvergenceTest(convString);
 				if(!ctest.parsingValid) {
@@ -481,7 +481,7 @@ public class NimrodOptimActor extends NimrodAtomicActor<BasicFunctions> implemen
 			m_Algo = algo;
 			m_ParamDefaultSettings.setExpression(m_Algo.getDefaultProperties().toString());
 		} else if(attribute == m_ParamNumObjectives) {
-			int numObj = ((IntToken) m_ParamNumObjectives.getToken()).intValue();
+			int numObj = ((IntToken)m_ParamNumObjectives.getToken()).intValue();
 			if(numObj < 1) {
 				throw new IllegalActionException("Number of objectives must be >= 1");
 			}
@@ -515,7 +515,7 @@ public class NimrodOptimActor extends NimrodAtomicActor<BasicFunctions> implemen
 				throw new IllegalActionException(e.getMessage());
 			}
 		} else if(attribute == m_ParamRNGSeed) {
-			m_RNGSeed = ((IntToken) m_ParamRNGSeed.getToken()).intValue();
+			m_RNGSeed = ((IntToken)m_ParamRNGSeed.getToken()).intValue();
 		} else {
 			super.attributeChanged(attribute);
 		}
@@ -579,6 +579,7 @@ public class NimrodOptimActor extends NimrodAtomicActor<BasicFunctions> implemen
 				logf(instance, e);
 			}
 		}
+
 	}
 
 	/**
@@ -635,7 +636,13 @@ public class NimrodOptimActor extends NimrodAtomicActor<BasicFunctions> implemen
 		try {
 			/* Attempt to load modules from the nimrodok-modules subdirectory of each. */
 			for(int i = 0; i < dirs.length; ++i) {
-				Path moduleFolder = Paths.get(dirs[i]).resolve("nimrodok-modules");
+				Path moduleFolder = null;
+				try {
+					moduleFolder = Paths.get(dirs[i]).resolve("nimrodok-modules");
+				} catch(IllegalArgumentException e) {
+					/* Skip invalid paths, some of the modules add this. */
+					continue;
+				}
 				if(!Files.exists(moduleFolder) || !Files.isDirectory(moduleFolder)) {
 					continue;
 				}
@@ -732,4 +739,5 @@ public class NimrodOptimActor extends NimrodAtomicActor<BasicFunctions> implemen
 		}
 	}
 	// </editor-fold>
+
 }

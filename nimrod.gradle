@@ -73,7 +73,7 @@ ext {
 	}
 
 	if(nimrodKPath == null) {
-		throw new GradleException("You must install Nimrod/K before installing Nimrod/OK. Cannot find \"${nimrodKNew}\" or \"${nimrodKOld}\"");
+		throw new GradleException("You must install Nimrod/K before installing Nimrod/OK.");
 	}
 
 	println "Found Nimrod/K at ${nimrodKPath}"
